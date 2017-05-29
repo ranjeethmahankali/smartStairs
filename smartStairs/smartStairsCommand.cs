@@ -174,6 +174,12 @@ namespace smartStairs
                         Landing land = new Landing(this.prevRun, myRun);
                         if(land.IsValid)e.Display.DrawBrepWires(land.LandingSurface, Color.Blue);
                     }
+                    string textTip = String.Format("N: {0}\nMax.Ht:{1}",myRun.NumSteps, myRun.NumSteps*code.MAX_RISER);
+                    e.Display.Draw3dText(new Rhino.Display.Text3d(textTip,
+                        new Plane(e.CurrentPoint,Vector3d.ZAxis), code.MIN_TREAD/2), 
+                        Color.Blue,
+                        e.CurrentPoint);
+                    //e.Display.Draw2dText("Hello", Color.White, Rhino.UI.MouseCallback.)
                 };
 
                 while (true)
